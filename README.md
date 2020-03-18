@@ -27,5 +27,5 @@ module "create" {
     nsb                     =  var.nsb
     web                     =  var.web
     hubprefix               =  var.hubprefix
-    spokeprefix             =  var.spokeprefix
+    spokeprefix             =  var.spokeprefix 
 }
