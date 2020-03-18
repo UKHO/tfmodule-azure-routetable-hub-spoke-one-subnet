@@ -42,6 +42,7 @@ resource "azurerm_route_table" "main" {
     next_hop_type  = var.hop
   }
 }
+
 data "azurerm_subnet" "main" {
   provider = azurerm.spoke  
   name = var.api    
