@@ -1,6 +1,13 @@
 # routetable
 Route table creation with subnet association. Cross subscription routing from a spoke to the hub
 
+# Steps
+
+1. Clone repo to local machine
+1. Update variables.tf with new values
+1. Update main.tf with backend details
+1. Setup service connection for AzureDevops pipeline
+
 # Use
 
 2. Calling the module;
