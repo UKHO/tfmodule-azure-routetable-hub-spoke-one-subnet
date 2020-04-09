@@ -50,7 +50,7 @@ resource "azurerm_route_table" "main" {
   virtual_network_name = local.vnet_name
 }
 
-resource "azurerm_subnet_route_table_association" "main1" {
+resource "azurerm_subnet_route_table_association" "main" {
   provider       = azurerm.spoke  
   subnet_id      = data.azurerm_subnet.subnet1.id
   route_table_id = azurerm_route_table.main.id
