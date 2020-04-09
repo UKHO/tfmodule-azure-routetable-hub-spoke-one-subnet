@@ -1,20 +1,14 @@
-# routetable
+# routetable Hub to Spoke
+
 Route table creation with subnet association. Cross subscription routing from a spoke to the hub
 
-# Steps
+## Use
 
-1. Clone repo to local machine
-1. Update variables.tf with new values
-1. Update main.tf with backend details
-1. Setup service connection for AzureDevops pipeline
-
-# Use
-
-2. Calling the module;
+Calling the module:
 
 ```terraform
 module "create" {
-    source                  = "github.com/ukho/tfmodule-azure-routetable-hub-spoke"
+    source                  = "github.com/ukho/tfmodule-azure-routetable-hub-spoke-one-subnet"
     spokesubscriptionid     =  var.spokesubscriptionid
     hubsubscriptionid       =  var.hubsubscriptionid
     spokerg                 =  var.spokerg
@@ -25,10 +19,8 @@ module "create" {
     routeaddress            =  var.routeaddress
     route                   =  var.route
     hop                     =  var.hop
-    api                     =  var.api
-    nsb                     =  var.nsb
-    web                     =  var.web
+    subnet_one              =  var.subnet_one
     hubprefix               =  var.hubprefix
-    spokeprefix             =  var.spokeprefix 
+    spokeprefix             =  var.spokeprefix
 }
 ```
