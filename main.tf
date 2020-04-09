@@ -43,42 +43,16 @@ resource "azurerm_route_table" "main" {
   }
 }
 
-data "azurerm_subnet" "main" {
-  provider = azurerm.spoke  
-  name = var.api    
-  resource_group_name = var.spokerg
-  virtual_network_name = local.vnet_name
-}
-
-resource "azurerm_subnet_route_table_association" "main" {
-  provider       = azurerm.spoke  
-  subnet_id      = data.azurerm_subnet.main.id
-  route_table_id = azurerm_route_table.main.id
-}
-
- data "azurerm_subnet" "main1" {
+ data "azurerm_subnet" "subnet1" {
   provider = azurerm.spoke   
-  name = var.nsb    
+  name = var.subnet_one    
   resource_group_name = var.spokerg
   virtual_network_name = local.vnet_name
 }
 
 resource "azurerm_subnet_route_table_association" "main1" {
   provider       = azurerm.spoke  
-  subnet_id      = data.azurerm_subnet.main1.id
-  route_table_id = azurerm_route_table.main.id
-}
-
-data "azurerm_subnet" "main2" {
-  provider = azurerm.spoke
-  name = var.web    
-  resource_group_name = var.spokerg
-  virtual_network_name = local.vnet_name
-}
-
-resource "azurerm_subnet_route_table_association" "main2" {
-  provider       = azurerm.spoke
-  subnet_id      = data.azurerm_subnet.main2.id
+  subnet_id      = data.azurerm_subnet.subnet1.id
   route_table_id = azurerm_route_table.main.id
 }
  
